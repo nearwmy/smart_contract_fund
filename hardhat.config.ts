@@ -1,6 +1,8 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import * as envEnc from "@chainlink/env-enc";
+require("./tasks");
+
 envEnc.config();
 
 const SEPOLIA_URL = process.env.SEPOLIA_URL;
@@ -8,6 +10,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const PRIVATE_KEY_2 = process.env.PRIVATE_KEY_2;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
+/** @type import('hardhat/config').HardhatUserConfig */
 const config: HardhatUserConfig = {
   solidity: "0.8.28",
   networks: {

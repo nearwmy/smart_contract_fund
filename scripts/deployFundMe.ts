@@ -35,9 +35,6 @@ async function main() {
     wallet
   );
 
-  const contractId = `0x9efb500b8b26bd4b3eac2610056437a9a30f68d7`;
-  const fundMe: any = await new hre.ethers.Contract(contractId, abi, provider);
-
   const depolyFundMe = async () => {
     console.log("Depolying contract...");
 
