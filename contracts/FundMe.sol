@@ -19,10 +19,10 @@ contract FundMe {
     uint256 deploymentTimestamp;
     uint256 lockTime;
 
-    AggregatorV3Interface internal dataFeed;
+    AggregatorV3Interface public dataFeed;
 
-    constructor(uint256 _lockTime) {
-        dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+    constructor(uint256 _lockTime, address _dataFeedAddr) {
+        dataFeed = AggregatorV3Interface(_dataFeedAddr);
         owner = msg.sender;
         deploymentTimestamp = block.timestamp;
         lockTime = _lockTime;

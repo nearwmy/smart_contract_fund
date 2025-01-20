@@ -1,7 +1,6 @@
 import hre from "hardhat";
 import { ethers } from "ethers";
 import * as envEnc from "@chainlink/env-enc";
-// import { FundMe } from "../types";
 
 envEnc.config();
 

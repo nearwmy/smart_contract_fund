@@ -14,9 +14,21 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "AggregatorInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorInterface__factory>;
+    getContractFactory(
+      name: "AggregatorV2V3Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorV2V3Interface__factory>;
+    getContractFactory(
       name: "AggregatorV3Interface",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.AggregatorV3Interface__factory>;
+    getContractFactory(
+      name: "MockV3Aggregator",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MockV3Aggregator__factory>;
     getContractFactory(
       name: "FundMe",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -27,10 +39,25 @@ declare module "hardhat/types/runtime" {
     ): Promise<Contracts.Lock__factory>;
 
     getContractAt(
+      name: "AggregatorInterface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorInterface>;
+    getContractAt(
+      name: "AggregatorV2V3Interface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorV2V3Interface>;
+    getContractAt(
       name: "AggregatorV3Interface",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.AggregatorV3Interface>;
+    getContractAt(
+      name: "MockV3Aggregator",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MockV3Aggregator>;
     getContractAt(
       name: "FundMe",
       address: string | ethers.Addressable,
@@ -43,9 +70,21 @@ declare module "hardhat/types/runtime" {
     ): Promise<Contracts.Lock>;
 
     deployContract(
+      name: "AggregatorInterface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorInterface>;
+    deployContract(
+      name: "AggregatorV2V3Interface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorV2V3Interface>;
+    deployContract(
       name: "AggregatorV3Interface",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.AggregatorV3Interface>;
+    deployContract(
+      name: "MockV3Aggregator",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.MockV3Aggregator>;
     deployContract(
       name: "FundMe",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -55,11 +94,26 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lock>;
 
+    deployContract(
+      name: "AggregatorInterface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorInterface>;
+    deployContract(
+      name: "AggregatorV2V3Interface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorV2V3Interface>;
     deployContract(
       name: "AggregatorV3Interface",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.AggregatorV3Interface>;
+    deployContract(
+      name: "MockV3Aggregator",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.MockV3Aggregator>;
     deployContract(
       name: "FundMe",
       args: any[],

@@ -23,6 +23,7 @@ import type {
 export interface FundMeInterface extends Interface {
   getFunction(
     nameOrSignature:
+      | "dataFeed"
       | "fund"
       | "fundersToAmount"
       | "getChainlinkDataFeedLatestAnswer"
@@ -32,6 +33,7 @@ export interface FundMeInterface extends Interface {
       | "transferOwnership"
   ): FunctionFragment;
 
+  encodeFunctionData(functionFragment: "dataFeed", values?: undefined): string;
   encodeFunctionData(functionFragment: "fund", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "fundersToAmount",
@@ -49,6 +51,7 @@ export interface FundMeInterface extends Interface {
     values: [AddressLike]
   ): string;
 
+  decodeFunctionResult(functionFragment: "dataFeed", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "fund", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "fundersToAmount",
@@ -110,6 +113,8 @@ export interface FundMe extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  dataFeed: TypedContractMethod<[], [string], "view">;
+
   fund: TypedContractMethod<[], [void], "payable">;
 
   fundersToAmount: TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
@@ -132,6 +137,9 @@ export interface FundMe extends BaseContract {
     key: string | FunctionFragment
   ): T;
 
+  getFunction(
+    nameOrSignature: "dataFeed"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "fund"
   ): TypedContractMethod<[], [void], "payable">;
